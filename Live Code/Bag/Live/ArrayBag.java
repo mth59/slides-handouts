@@ -24,7 +24,12 @@ public final class ArrayBag<T> implements BagInterface<T> {
     * @return true if adding was sucessful, or false otherwise
     */
     public boolean add(T item) {
-      return false;
+      if(bag.length < numberOfItems) {
+        bag[numberOfItems] = item; 
+        numberOfItems++; 
+        
+        result = true;
+      }
     }
   
 
