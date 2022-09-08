@@ -63,7 +63,13 @@ public final class ArrayBag<T> implements BagInterface<T> {
   }
 
   public T[] toArray(){
-   return null;
+   @SuppressWarnings("Unchecked") 
+    T[] result = (T[])new Object[numberOfItems]; 
+    for (int i = 0; i < numberOfItems; i++) {
+      result[i] = bag[i]; //shallow copy 
+      // T temp = new Object(bag[i]); deep copy 1/2
+      // result[i] = temp;  deep copy 2/2 
+    }
   }
 
   public boolean contains(T item){
